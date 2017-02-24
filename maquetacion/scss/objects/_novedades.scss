@@ -1,0 +1,196 @@
+/*------------------------------------*\
+$NOVEDADES
+\*------------------------------------*/
+.novedades {
+    .wrap {
+        padding: 0 20px;
+        @include respond-to(tablet) {
+            padding: 0 8px;
+        }
+        @include respond-to(desktop) {
+            padding: 0;
+        }
+    }
+}
+.no-touch {
+    .filter {
+        @include respond-to(tablet) {
+            padding-top: 6px;
+        }
+        .filters {
+            li {
+                &:hover {
+                    background: $principal30;
+                    color: $main;
+                }
+            }
+        }
+    }
+    .isotope {
+        .isotope__item {
+            &:hover {
+                background: $principal;
+                .isotope__image {
+                    opacity: .8;
+                }
+            }
+            .isotope__content {
+                .isotope__filter {
+                    span {
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .load-more {
+        &:hover {
+            background: $main;
+            color: white;
+        }
+    }
+}
+.filter {
+    position: relative;
+    z-index: $level2;
+    margin: auto;
+    @include respond-to(tablet) {
+        max-width: calc(100% / 2 - 16px);
+    }
+    @include respond-to(desktop) {
+        max-width: calc(100% / 3 - 30px);
+    }
+    .text__group {
+        height: 40px;
+        background: url(../img/filter.svg) right 10px center $principal10 no-repeat;
+        background-size: 24px 24px;
+        @include font-size(16px, 40px);
+        padding: 0 10px;
+        cursor: pointer;
+        color: $principal70;
+        margin-bottom: 20px;
+        font-family: 'roboto_condensedregular';
+        @include respond-to(desktop) {
+            margin-bottom: 30px;
+        }
+        &.filter-team {
+            margin-bottom: 6px;
+        }
+    }
+    .filters {
+        width: 100%;
+        position: relative;
+        top: -20px;
+        z-index: $level2;
+        display: none;
+        background: white;
+        @include respond-to(tablet) {
+            position: absolute;
+            top: 40px;
+        }
+        li {
+            padding: 0 10px;
+            @include font-size(16px, 40px);
+            background: $principal10;
+            border-bottom: 1px solid $principal50;
+            transition: all 300ms;
+            color: $principal;
+            cursor: pointer;
+            &.active {
+                background: $principal30;
+                color: $main;
+            }
+        }
+    }
+}
+.item--selector {
+    width: 100%;
+    @include respond-to(tablet) {
+        width: calc(50% - 16px);
+    }
+    @include respond-to(desktop) {
+        width: calc(100% / 3 - 30px);
+    }
+}
+.isotope {
+    display: flex;
+    flex-flow: row wrap;
+    .isotope__item {
+        position: relative;
+        background: $principal90;
+        width: 100%;
+        min-height: 160px;
+        margin-bottom: 16px;
+        transition: all 300ms;
+        @include respond-to(tablet) {
+            width: calc(50% - 16px);
+            margin: 0 8px 16px;
+        }
+        @include respond-to(desktop) {
+            width: calc(100% / 3 - 30px);
+            margin: 0 15px 30px;
+        }
+        .isotope__image {
+            opacity: .6;
+            background: $principal;
+            transition: all 300ms;
+            img {
+                width: 100%;
+                opacity: .6;
+            }
+        }
+        .isotope__content {
+            .isotope__title {
+                @include font-size(21px, 24px);
+                font-family: 'roboto_condensedbold';
+                color: white;
+                text-transform: uppercase;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                display: block;
+                @include respond-to(tablet) {
+                    @include font-size(28px, 32px);
+                }
+                span {
+                    padding: 0 20px;
+                    width: 100%;
+                    @include center;
+                }
+            }
+            .isotope__filter {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                color: white;
+                padding: 10px 15px;
+                border-top: 1px solid white;
+                @include font-size(14px, 18px);
+                @include respond-to(tablet) {
+                    @include font-size(14px, 21px);
+                }
+                span {
+                    cursor: pointer;
+                    transition: all 300ms;
+                }
+            }
+        }
+    }
+}
+.load-more {
+    width: 200px;
+    height: 50px;
+    border: 2px solid $main;
+    color: $main;
+    @include font-size(15px, 46px);
+    text-align: center;
+    display: block;
+    margin: 0 auto 30px;
+    @include respond-to(tablet) {
+        @include font-size(16px, 46px);
+    }
+}

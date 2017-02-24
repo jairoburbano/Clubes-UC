@@ -1,0 +1,273 @@
+/*------------------------------------*\
+$COMMENTS
+\*------------------------------------*/
+.no-touch {
+    #respond {
+        .comment-form {
+            .form-submit {
+                .submit {
+                    &:hover {
+                        color: white;
+                        background: $main;
+                    }
+                }
+            }
+        }
+    }
+    .custom-login {
+        .must-log-in, .logged-in-as {
+            a {
+                &:hover {
+                    color: $main;
+                }
+            }
+        }
+    }
+    .comment-list {
+        .comment {
+            .comment-body {
+                .comment-meta {
+                    .comment-metadata {
+                        .reply {
+                            a {
+                                &:hover {
+                                    color: $main;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .custom-login {
+        .custom-rss {
+            li {
+                @each $redes, $color in $redes {
+                    &.#{$redes} {
+                        &:hover {
+                            border: 1px solid $color;
+                            background-color: transparent;
+                            a {
+                                svg {
+                                    fill: $color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#comments {
+    padding-top: 30px;
+    padding-bottom: 73px;
+    @include respond-to(tablet) {
+        max-width: 595px;
+        margin: auto;
+    }
+    @include respond-to(desktop) {
+        max-width: 630px;
+        padding-top: 56px;
+        padding-right: 60px;
+    }
+    .comments-title {
+        font-family: 'roboto_condensedlight';
+        @include font-size(24px, 32px);
+        margin-bottom: 5px;
+        @include respond-to(tablet) {
+            margin-left: -30px;
+        }
+        @include respond-to(desktop) {
+            margin-left: -10px;
+        }
+        span {
+            width: 32px;
+            height: 32px;
+            background: $main;
+            color: white;
+            @include font-size(16px, 32px);
+            text-align: center;
+            font-family: 'fira_sansbold';
+            margin-right: 5px;
+            display: inline-block;
+            border-radius: 50%;
+        }
+    }
+}
+.bg--content {
+    background: $principal05;
+    @include respond-to(desktop) {
+        margin-top: 60px;
+    }
+}
+.comment-list {
+    .comment {
+        .comment-body {
+            position: relative;
+            border-bottom: 2px solid $principal20;
+            padding: 20px 0;
+            .comment-meta {
+                display: flex;
+                flex-flow: row wrap;
+                @include respond-to(tablet) {
+                    justify-content: space-between;
+                }
+                .vcard {
+                    width: 100%;
+                    @include respond-to(tablet) {
+                        width: auto;
+                    }
+                    .avatar {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        margin-right: 10px;
+                    }
+                    .fn {
+                        @include font-size(16px, 32px);
+                        font-family: 'fira_sansbold';
+                        a {
+                            color: $principal70;
+                        }
+                    }
+                    .says {
+                        display: none;
+                    }
+                }
+                .comment-metadata {
+                    @include font-size(14px, 16px);
+                    margin: 2px 0;
+                    display: flex;
+                    flex-flow: row wrap;
+                    height: 16px;
+                    @include respond-to(tablet) {
+                        margin-top: 8px;
+                    }
+                    a {
+                        color: $principal50;
+                    }
+                    .comment-edit-link {
+                        display: none;
+                    }
+                    .reply {
+                        border-left: 1px solid $principal50;
+                        padding-left: 5px;
+                        margin-left: 5px;
+                    }
+                }
+            }
+            .comment-content {
+                @include font-size(15px, 24px);
+                color: $principal70;
+            }
+        }
+        .children {
+            padding-left: 15px;
+            @include respond-to(tablet) {
+                padding-left: 40px;
+            }
+        }
+    }
+}
+#respond {
+    position: relative;
+    .comment-reply-title {
+        @include font-size(21px, 32px);
+        font-family: 'roboto_condensedlight';
+        text-align: center;
+        margin-top: 30px;
+        @include respond-to(tablet) {
+            @include font-size(24px, 32px);
+            text-align: left;
+        }
+    }
+    .comment-form {
+        .comment-form-comment {
+            label {
+                display: none;
+            }
+            textarea {
+                width: 100%;
+                background: white;
+                border: 1px solid $principal20;
+                margin-top: 20px;
+                resize: none;
+            }
+        }
+        .form-submit {
+            text-align: right;
+            padding-bottom: 30px;
+            .submit {
+                width: 200px;
+                height: 50px;
+                border: 2px solid $main;
+                @include font-size(15px, 46px);
+                transition: all 300ms;
+                text-align: center;
+                color: $main;
+                margin: 30px 0 auto auto;
+                background-color: transparent;
+            }
+        }
+    }
+}
+.custom-login {
+    position: relative;
+    @include respond-to(tablet) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 70%;
+    }
+
+    .must-log-in, .logged-in-as {
+        @include font-size(14px, 16px);
+        color: $principal70;
+        text-align: center;
+        a {
+            color: $principal70;
+        }
+        @include respond-to(tablet) {
+            text-align: right;
+        }
+    }
+    .custom-rss {
+        display: flex;
+        flex-flow: row wrap;
+        width: 150px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        li {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            transition: all 300ms;
+            border: 1px solid transparent;
+            margin-left: 5px;
+            @each $redes, $color in $redes {
+                &.#{$redes} {
+                    background: $color;
+                }
+            }
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                svg {
+                    max-width: 16px;
+                    max-height: 16px;
+                    @include center;
+                    fill: white;
+                    transition: all 300ms;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,220 @@
+/*------------------------------------*\
+$MAIN
+\*------------------------------------*/
+html, body {
+    height: 100%;
+    color: $principal;
+    font-family: 'fira_sansregular';
+}
+.noscroll {
+    overflow: hidden;
+}
+.home {
+    .fix--foo {
+        height: 100%;
+        padding: 0;
+    }
+}
+.fix--foo {
+    min-height: 100%;
+    padding: 50px 0;
+    @include respond-to(tablet) {
+        padding: 120px 0 90px;
+    }
+}
+.headline {
+    height: 48px;
+    width: 100%;
+    background: $principal05;
+    color: $principal;
+    border-left: 5px solid $main;
+    @include font-size(32px, 42px);
+    padding-left: 15px;
+    position: relative;
+    margin-bottom: 25px;
+    @include respond-to(tablet) {
+        text-align: center;
+        background-color: transparent;
+        border-left: none;
+        height: auto;
+        @include font-size(48px, 64px);
+        padding-top: 20px;
+        padding-left: 0;
+        &::after {
+            content: '';
+            width: 42px;
+            height: 2px;
+            background: $main;
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    }
+    @include respond-to(desktop) {
+        padding-top: 29px;
+    }
+}
+.sub-title {
+    @include font-size(24px, 30px);
+    width: 100%;
+    margin-bottom: 10px;
+    color: $principal;
+    @include respond-to(tablet) {
+        @include font-size(28px, 32px);
+        text-align: center;
+        margin-bottom: 8px;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'roboto_condensedlight';
+    font-weight: normal;
+}
+h1 {
+    @include font-size(28px, 30px);
+    @include respond-to(tablet) {
+        @include font-size(48px, 48px);
+    }
+}
+h2 {
+    @include font-size(24px, 32px);
+    @include respond-to(tablet) {
+        @include font-size(28px, 32px);
+    }
+}
+h3 {
+    @include font-size(19px, 24px);
+    font-family: 'fira_sansregular';
+    margin-bottom: 0;
+    @include respond-to(tablet) {
+        @include font-size(21px, 24px);
+    }
+}
+.wp-caption-text {
+    @include font-size(14px, 21px);
+    color: $principal50;
+    padding: 0 10px;
+    margin-top: 7px;
+}
+.no-touch {
+    a {
+        &:hover {
+            color: $main;
+        }
+    }
+}
+a {
+    transition: all 300ms;
+    color: $main70;
+}
+.tcenter {
+    text-align: center;
+}
+.image--triangle {
+    position: relative;
+    margin-bottom: 30px;
+    &::after, &::before {
+        content: '';
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        top: -7px;
+        right: -7px;
+        background: url(../img/triangle.png);
+        @include respond-to(tablet) {
+            width: 65px;
+            height: 65px;
+        }
+    }
+    &::before {
+        top: auto;
+        right: auto;
+        left: -7px;
+        bottom: -7px;
+        transform: rotate(180deg);
+    }
+}
+img {
+    max-width: 100%;
+}
+.content {
+    @include font-size(15px, 24px);
+    color: $principal70;
+    @include respond-to(tablet) {
+        @include font-size(16px, 24px);
+    }
+    p {
+        margin: 0 0 23px 0;
+        &:last-child {
+            margin-bottom: 15px;
+        }
+    }
+    a {
+        text-decoration: underline;
+    }
+    h3 {
+        color: $main;
+    }
+    figure {
+        margin: 0 0 20px;
+        padding-top: 16px;
+    }
+    blockquote {
+        color: $main;
+        @include font-size(19px, 24px);
+        border-left: 3px solid $main;
+        padding: 4px 40px 0 30px;
+        margin-bottom: 15px;
+        font-family: 'fira_sanslight';
+        width: 100%;
+        display: inline-block;
+        margin-left: 5px;
+        @include respond-to(tablet) {
+            @include font-size(21px, 24px);
+            width: 40%;
+            float: right;
+            margin-left: 25px;
+            padding: 4px 10px 0 30px;
+        }
+    }
+    img {
+        width: 100%;
+    }
+    strong {
+        font-family: 'fira_sanssemibold';
+        font-weight: normal;
+    }
+    ul {
+        li {
+            margin-bottom: 14px;
+            padding-left: 20px;
+            position: relative;
+            &::before {
+                content: '■';
+                color: $main;
+                margin-right: 15px;
+                font-size: cr(16px);
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+    ol {
+        counter-reset: item;
+        > li {
+            padding-left: 15px;
+            position: relative;
+            &::before {
+                content: counter(item) ". ";
+                counter-increment: item;
+                color: $main;
+                margin-right: 15px;
+                font-size: cr(16px);
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+}

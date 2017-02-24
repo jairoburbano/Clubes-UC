@@ -1,0 +1,249 @@
+/*------------------------------------*\
+$HEADER
+\*------------------------------------*/
+.no-touch {
+    .header {
+        .menu--bottom {
+            .nav {
+                li {
+                    a {
+                        &:hover {
+                            color: white;
+                            font-family: 'roboto_condensedbold';
+                            &::after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.header {
+    width: 100%;
+    position: absolute;
+    z-index: $level8;
+    font-family: 'roboto_condensedregular';
+    @include respond-to(tablet) {
+        height: 120px;
+        background: white;
+    }
+    &.active, &.current-menu-item, &.current-page-ancestor {
+        height: 100%;
+        .menu--top {
+            .menu--icon {
+                background: $main;
+            }
+        }
+    }
+    .menu--top {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        background: white;
+        transition: all 300ms;
+        padding: 0;
+        @include respond-to(tablet) {
+            height: 80px;
+        }
+        .logo {
+            height: 40px;
+            margin-top: 5px;
+            margin-left: 10px;
+            transition: all 300ms;
+            width: auto;
+            @include respond-to(tablet) {
+                height: 60px;
+                margin-top: 10px;
+            }
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
+        .menu--icon {
+            width: 70px;
+            height: 100%;
+            text-align: center;
+            line-height: cr(50px);
+            background: $principal;
+            color: white;
+            transition: all 300ms;
+            cursor: pointer;
+            @include respond-to(tablet) {
+                display: none;
+            }
+        }
+        .menu--buttons {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: $level2;
+            display: none;
+            background: $principal05;
+            @include respond-to(tablet) {
+                display: block;
+                position: relative;
+                bottom: auto;
+                width: auto;
+                background-color: transparent;
+                padding-top: 15px;
+            }
+            .redes {
+                display: flex;
+                flex-flow: row wrap;
+                background: $principal10;
+                @include respond-to(tablet) {
+                    background-color: transparent;
+                    padding-right: 15px;
+                }
+                @include respond-to(desktop) {
+                    padding-right: 0;
+                }
+                a {
+                    height: 32px;
+                    flex: 1;
+                    @include respond-to(tablet) {
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        margin: 0 5px;
+                        background: $principal10;
+                    }
+                    svg {
+                        display: block;
+                        margin: 10px auto;
+                        max-height: 12px;
+                        max-width: 12px;
+                        @include respond-to(tablet) {
+                            margin: 6px auto;
+                        }
+                    }
+                }
+            }
+            .access, .logout {
+                display: flex;
+                flex-flow: row wrap;
+                @include respond-to(tablet) {
+                    justify-content: center;
+                    padding-right: 20px;
+                }
+                @include respond-to(desktop) {
+                    padding-right: 12px;
+                }
+                a {
+                    width: 50%;
+                    background: $principal;
+                    @include font-size(14px, 32px);
+                    text-align: center;
+                    display: block;
+                    color: white;
+                    position: relative;
+                    &:first-child {
+                        background: $principal90;
+                        @include respond-to(tablet) {
+                            background-color: transparent;
+                            margin-right: 12px;
+                            &::after {
+                                content: '';
+                                height: 100%;
+                                width: 1px;
+                                position: absolute;
+                                right: -6px;
+                                top: 0;
+                                background: $principal;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        @include respond-to(tablet) {
+                            font-family: 'roboto_condensedbold';
+                        }
+                    }
+                    &.active, &.current-menu-item, &.current-page-ancestor {
+                        border-bottom: 2px solid $main;
+                        padding-bottom: 3px;
+                    }
+                    @include respond-to(tablet) {
+                        background-color: transparent;
+                        color: $principal;
+                        width: auto;
+                        line-height: cr(14px);
+                        margin-top: 9px;
+                    }
+                }
+            }
+        }
+    }
+    .menu--bottom {
+        display: none;
+        height: calc(100% - 115px);
+        background: $principal05;
+        @include respond-to(tablet) {
+            height: 40px;
+            display: block;
+            background: $principal;
+        }
+        .wrap {
+            height: 100%;
+            padding-right: 0;
+        }
+        .nav {
+            display: flex;
+            flex-flow: column wrap;
+            overflow-y: auto;
+            height: 100%;
+            @include respond-to(tablet) {
+                flex-flow: row wrap;
+                overflow: inherit;
+            }
+            li {
+                width: 100%;
+                padding: 20px 0 10px 0;
+                @include respond-to(tablet) {
+                    width: auto;
+                    padding: 0 5px;
+                }
+                a {
+                    color: $principal70;
+                    @include font-size(21px, 21px);
+                    display: block;
+                    position: relative;
+                    z-index: 1;
+                    @include respond-to(tablet) {
+                        @include font-size(16px, 40px);
+                        color: $principal30;
+                        padding: 0 15px;
+                        &.current-menu-item, &.current-page-ancestor {
+                            color: white;
+                            font-family: 'roboto_condensedbold';
+                            &::after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    @include respond-to(desktop) {
+                        padding: 0 12px;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: -5px;
+                        left: 0;
+                        width: 100%;
+                        height: calc(100% + 10px);
+                        background: $main;
+                        z-index: -1;
+                        opacity: 0;
+                        transition: all 300ms;
+                    }
+                }
+            }
+        }
+    }
+}

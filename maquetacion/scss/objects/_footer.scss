@@ -1,0 +1,54 @@
+/*------------------------------------*\
+$FOOTER
+\*------------------------------------*/
+.home {
+    .footer {
+        background-color: transparent;
+    }
+}
+.footer {
+    margin-top: -50px;
+    height: 50px;
+    background: $principal;
+    position: relative;
+    z-index: $level2;
+    border-top: 1px solid rgba(white, .3);
+    padding: 9px 0;
+    transition: all 300ms;
+    @include respond-to(tablet) {
+        height: 90px;
+        margin-top: -90px;
+    }
+    .foo__links {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        .foo__items {
+            &:first-child {
+                margin-left: -10px;
+                @include respond-to(tablet) {
+                    margin-left: 0;
+                }
+                img {
+                    margin-left: 0;
+                }
+            }
+            &:last-child {
+                margin-right: -10px;
+                @include respond-to(tablet) {
+                    margin-right: 0;
+                }
+                img {
+                    margin-right: 0;
+                }
+            }
+            img {
+                display: block;
+                margin: auto;
+                @include respond-to(tablet) {
+                    height: 60px;
+                }
+            }
+        }
+    }
+}

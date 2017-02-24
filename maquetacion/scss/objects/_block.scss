@@ -1,0 +1,67 @@
+/*------------------------------------*\
+$BLOCK
+\*------------------------------------*/
+.block {
+    margin: 24px auto;
+    border-bottom: 1px solid $principal10;
+    &:first-child {
+        margin-top: 0;
+    }
+    @include respond-to(tablet) {
+        padding-bottom: 15px;
+    }
+    @include respond-to(desktop) {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+.block--column {
+    display: flex;
+    flex-flow: row wrap;
+    .column {
+        @include respond-to(tablet) {
+            width: 50%;
+            padding: 0 15px;
+            .sub-title {
+                text-align: left;
+            }
+        }
+    }
+}
+.block--final {
+    border-bottom: none;
+}
+.block--flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+.block--center {
+    padding-bottom: 14px;
+    @include respond-to(tablet) {
+        text-align: center;
+        padding-bottom: 13px;
+    }
+    @include respond-to(desktop) {
+        max-width: 750px;
+        margin: 30px auto;
+        padding-top: 55px;
+        padding-bottom: 43px;
+        border-top: 1px solid $principal10;
+        border-bottom: 1px solid $principal10;
+    }
+    p {
+        @include respond-to(tablet) {
+            max-width: 500px;
+            margin: 9px auto;
+        }
+    }
+}
+.block--space {
+    justify-content: space-between;
+    @include respond-to(tablet) {
+        padding-top: 9px;
+    }
+    @include respond-to(desktop) {
+        justify-content: center;
+    }
+}

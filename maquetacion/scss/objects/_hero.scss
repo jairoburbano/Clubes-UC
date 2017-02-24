@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    		$HERO
+\*------------------------------------*/
+.no-touch {
+    .mensajes {
+        .btn--message {
+            &:hover {
+                background: $main;
+                color: white;
+            }
+        }
+    }
+}
+.mensajes {
+    @include respond-to(tablet) {
+        max-width: 655px;
+        margin: auto;
+    }
+    p {
+        @include font-size(24px, 32px);
+        font-family: 'roboto_condensedlight';
+        @include respond-to(tablet) {
+            @include font-size(28px, 32px);
+            text-align: center;
+        }
+    }
+    .btn--message {
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        border: 2px solid $main;
+        @include font-size(15px, 50px);
+        display: block;
+        margin-top: 15px;
+        transition: all 300ms;
+        @include respond-to(tablet) {
+            margin: auto;
+            @include font-size(16px, 50px);
+            margin-top: 35px;
+        }
+    }
+}

@@ -1,0 +1,438 @@
+/*------------------------------------*\
+$SOMOS
+\*------------------------------------*/
+.somos {
+    .wrap {
+        @include respond-to(tablet) {
+            padding: 0 24px;
+        }
+    }
+    .gray--box {
+        background: $principal05;
+        padding-top: 20px;
+        @include respond-to(desktop) {
+            padding-top: 56px;
+        }
+        &.gray--less-margin {
+            margin-top: -10px;
+            @include respond-to(desktop) {
+                margin-top: 0;
+            }
+        }
+    }
+    .normal--box {
+        padding-top: 28px;
+        @include respond-to(desktop) {
+            padding-top: 84px;
+            max-width: cr(1020px);
+        }
+        .team {
+            border-bottom: 1px solid $principal10;
+            margin-bottom: 25px;
+            padding-top: 5px;
+            @include respond-to(desktop) {
+                padding-bottom: 40px;
+                margin-bottom: 60px;
+            }
+            &:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+            .team__item {
+                margin-bottom: 30px;
+                @include respond-to(tablet) {
+                    padding: 0;
+                    width: 25%;
+                    margin-bottom: 20px;
+                }
+                @include respond-to(desktop) {
+                    width: 20%;
+                }
+            }
+        }
+        .team__column {
+            @include respond-to(desktop) {
+                border-bottom: none;
+                position: relative;
+                &::after {
+                    content: '';
+                    width: 750px;
+                    height: 1px;
+                    background: $principal10;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    transform: translate(-50%, 0);
+                }
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .column {
+        @include respond-to(tablet) {
+            &:first-child {
+                padding-right: 25px;
+            }
+            &:last-child {
+                padding-right: 0;
+                padding-top: 8px;
+                padding-left: 12px;
+            }
+        }
+        @include respond-to(tablet) {
+            .sub-title {
+                padding-top: 36px;
+            }
+            &:first-child {
+                padding-right: 42px;
+            }
+            &:last-child {
+                padding-left: 20px;
+            }
+        }
+    }
+    .block--final {
+        @include respond-to(tablet) {
+            display: block;
+            padding-bottom: 6px;
+        }
+        @include respond-to(desktop) {
+            margin-top: 50px;
+            padding-bottom: 18px;
+        }
+        .column {
+            @include respond-to(tablet) {
+                float: right;
+                &:last-child {
+                    padding-right: 10px;
+                    padding-left: 0;
+                }
+                &:first-child {
+                    padding-left: 27px;
+                    .sub-title {
+                        padding-left: 10px;
+                    }
+                }
+            }
+            @include respond-to(desktop) {
+                &:last-child {
+                    padding-right: 25px;
+                    padding-left: 0;
+                }
+                &:first-child {
+                    padding-left: 41px;
+                    padding-right: 20px;
+                    .sub-title {
+                        padding-top: 5px;
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.team.team__center {
+    justify-content: flex-start;
+    .team__item {
+        width: 50%;
+        @include respond-to(tablet) {
+            width: 25%;
+        }
+        @include respond-to(desktop) {
+            width: 20%;
+        }
+    }
+}
+.color__title {
+    color: $main;
+    @include font-size(21px, 32px);
+    font-family: 'roboto_condensedlight';
+    @include respond-to(tablet) {
+        @include font-size(24px, 32px);
+        margin-bottom: 14px;
+    }
+    @include respond-to(desktop) {
+        margin-bottom: 15px;
+    }
+}
+.team {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-top: 10px;
+    .team__item {
+        width: 100%;
+        margin-bottom: 32px;
+        text-align: center;
+        min-height: 224px;
+        @include respond-to(tablet) {
+            width: (100% / 3);
+        }
+        @include respond-to(desktop) {
+            width: (100% / 5);
+        }
+        .team__container {
+            width: 100%;
+            margin: auto;
+            cursor: pointer;
+            @include respond-to(tablet) {
+                width: 170px;
+            }
+        }
+        .team__lightbox {
+            display: none;
+            position: fixed;
+            background: rgba($principal, .9);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: $level9;
+            .team__lightbox__block {
+                padding: 10px;
+                max-width: 730px;
+                width: 90%;
+                height: 100%;
+                max-height: 90%;
+                background: white;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                @include respond-to(tablet) {
+                    padding: 20px;
+                    display: flex;
+                    flex-flow: row wrap;
+                    height: auto;
+                }
+                .team__image {
+                    float: left;
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                    @include respond-to(tablet) {
+                        width: 200px;
+                        max-height: 300px;
+                        margin: 0 20px 0 0;
+                    }
+                }
+                .team__block {
+                    margin-bottom: 15px;
+                    text-align: left;
+                    padding-right: 45px;
+                    width: calc(100% - 240px);
+                    left: 240px;
+                    position: absolute;
+                    @include less-than(tablet) {
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        background: $principal05;
+                        padding: 10px;
+                        z-index: $level1;
+                    }
+                }
+                .team__whole {
+                    width: 100%;
+                    text-align: left;
+                    overflow-y: auto;
+                    position: relative;
+                    height: 100%;
+                    .team__intereses {
+                        margin-bottom: 10px;
+                        p {
+                            display: inline-block;
+                            position: relative;
+                            margin-right: 10px;
+                        }
+                    }
+                    .team__text {
+                        @include respond-to(tablet) {
+                            padding-left: 220px;
+                        }
+                    }
+                    .team__rss {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: space-between;
+                        margin-top: 15px;
+                        .team__rss__item {
+                            display: flex;
+                            flex-flow: row wrap;
+                            width: 100%;
+                            margin-bottom: 5px;
+                            @include respond-to(tablet) {
+                                font: auto;
+                                width: auto;
+                                margin-bottom: 0;
+                            }
+                            a {
+                                color: $principal70;
+                            }
+                            .icon {
+                                width: 24px;
+                                height: 24px;
+                                margin-right: 5px;
+                                position: relative;
+                                background: #ccc;
+                                border-radius: 50%;
+                                overflow: hidden;
+                                &.icon-mail {
+                                    background: #67bbaa;
+                                    svg {
+                                        width: 12px;
+                                        height: 9px;
+                                    }
+                                }
+                                &.icon-phone {
+                                    background: #1eb03b;
+                                    svg {
+                                        width: 24px;
+                                        height: 24px;
+                                    }
+                                }
+                                &.icon-linkedin {
+                                    background: #0079b8;
+                                    svg {
+                                        width: 10px;
+                                        height: 10px;
+                                    }
+                                }
+                                svg {
+                                    fill: white;
+                                    @include center;
+                                }
+                            }
+                        }
+                    }
+                }
+                .team__close {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    height: 24px;
+                    width: 24px;
+                    @include font-size(24px, 20px);
+                    border: 2px solid $main;
+                    cursor: pointer;
+                    z-index: $level2;
+                    svg {
+                        width: 13px;
+                        height: 13px;
+                        @include center;
+                    }
+                }
+            }
+        }
+        .team__image {
+            width: 134px;
+            max-height: 200px;
+            overflow: hidden;
+            margin: auto;
+            transition: all 300ms;
+            img {
+                width: 100%;
+                display: block;
+                transition: all 300ms;
+            }
+        }
+        .team__name {
+            margin: 8px 0 0;
+            transition: all 300ms;
+            font-family: 'roboto_condensedlight';
+            @include font-size(19px, 21px);
+            @include respond-to(tablet) {
+                @include font-size(21px, 21px);
+            }
+        }
+        .team__ocupation {
+            color: $main;
+            @include font-size(15px, 21px);
+            transition: all 300ms;
+            @include respond-to(tablet) {
+                @include font-size(16px, 21px);
+            }
+        }
+    }
+}
+.team__column {
+    justify-content: flex-start;
+    @include respond-to(desktop) {
+        justify-content: center;
+    }
+    .team__item {
+        width: 50%;
+        padding-right: 20px;
+        @include respond-to(tablet) {
+            width: 190px;
+            padding: 0 15px;
+        }
+        &:nth-child(2n) {
+            padding-right: 0;
+            padding-left: 20px;
+            @include respond-to(tablet) {
+                padding-left: 0;
+            }
+        }
+        .team__image {
+            width: 111px;
+            max-height: 165px;
+        }
+    }
+}
+.site__item {
+    text-align: center;
+    margin-bottom: 16px;
+    width: 130px;
+    justify-content: center;
+    @include respond-to(tablet) {
+        width: 25%;
+        margin-bottom: 22px;
+    }
+    @include respond-to(desktop) {
+        width: 20%;
+    }
+    &:hover {
+        .site__title {
+            color: $principal;
+        }
+    }
+    .site__image {
+        width: 130px;
+        height: 95px;
+        overflow: hidden;
+        margin: 0 auto 7px;
+        border: 1px solid $principal10;
+        background: white;
+        position: relative;
+        display: block;
+        @include respond-to(tablet) {
+            width: 165px;
+            height: 120px;
+        }
+        img {
+            @include center;
+            max-width: 90%;
+            max-height: 90%;
+        }
+    }
+    .site__title {
+        @include font-size(15px, 20px);
+        color: $principal70;
+        transition: all 300ms;
+    }
+}
+.box--foo {
+    padding-bottom: 34px;
+    @include respond-to(tablet) {
+        padding-bottom: 11px;
+        padding-top: 32px !important;
+    }
+    @include respond-to(desktop) {
+        padding-bottom: 81px;
+        padding-top: 54px !important;
+    }
+}
